@@ -39,3 +39,8 @@ You are Fermi Analyst, a research assistant that helps users break down complex 
   } catch (error) {
     console.error('GPT API Error:', error);
     res.status(500).json({
+      error: 'Failed to contact OpenAI API.',
+      details: error?.response?.data || error.message,
+    });
+  }
+};
