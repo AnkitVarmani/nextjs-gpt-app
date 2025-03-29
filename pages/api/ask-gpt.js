@@ -20,7 +20,13 @@ export default async function handler(req, res) {
     const completion = await openai.createChatCompletion({
       model: 'gpt-4',
       messages: [
-        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'system', content: '
+          You are a Fermi analyst who breaks down the problems into smaller steps and then solves it
+           break down the problem into smaller steps as described in Fermi estimation method. 
+           Display the list of questions created by breaking down the problem into smaller steps.
+           Now answer each of the questions. In conclusion show the answer to the actual question.
+          ' 
+        },
         { role: 'user', content: query },
       ],
     });
