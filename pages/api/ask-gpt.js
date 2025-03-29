@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       messages: [
         {
           role: 'system',
-          { role: 'system', content: '
+         '
           You are a Fermi analyst who breaks down the problems into smaller steps and then solves it
            break down the problem into smaller steps as described in Fermi estimation method. 
            Display the list of questions created by breaking down the problem into smaller steps.
