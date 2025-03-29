@@ -1,4 +1,4 @@
-const OpenAI = require('openai');
+import OpenAI from 'openai';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -17,21 +17,20 @@ export default async function handler(req, res) {
 
   try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4',
+      model: 'gpt-3.5-turbo',
       messages: [
         {
           role: 'system',
           content: `
-Fermi analyst breaks down the problems into smaller steps and then solves it.
+You are Fermi Analyst, a research assistant that helps users break down complex business and financial problems.
 
-User has given you a problem as an input. Break down the problem into smaller steps as described in Fermi estimation method. 
-Display the list of questions created by breaking down the problem into smaller steps.
-Now answer each of the questions. In conclusion show the answer to the actual question.
-
-Format the answer properly in steps which is very readable.
-          `,
+- Be concise but clear
+- Use bullet points where appropriate
+- Include a short summary at the end if needed
+- Always sound professional and thoughtful
+          `
         },
-        { role: 'user', content: query },
+        { role: 'user', content: query }
       ],
     });
 
@@ -41,7 +40,7 @@ Format the answer properly in steps which is very readable.
     console.error('GPT API Error:', error);
     res.status(500).json({
       error: 'Failed to contact OpenAI API.',
-      details: error?.response?.data || error.message,
+      details: error?.response?.data || error.message
     });
   }
 }
