@@ -4,7 +4,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
@@ -43,4 +43,4 @@ You are Fermi Analyst, a research assistant that helps users break down complex 
       details: error?.response?.data || error.message,
     });
   }
-};
+}
