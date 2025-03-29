@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '100px', fontFamily: 'sans-serif' }}>
-      <h1>Ask GPT</h1>
+      <h1>Ask your tough questions here </h1>
       <textarea
         style={{ width: '400px', height: '100px', padding: '10px', fontSize: '16px' }}
         placeholder="Type your question here..."
