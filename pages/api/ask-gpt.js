@@ -17,17 +17,18 @@ export default async function handler(req, res) {
 
   try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4',
       messages: [
         {
           role: 'system',
           content: `
-You are Fermi Analyst, a research assistant that helps users break down complex business and financial problems.
+Fermi analyst breaks down the problems into smaller steps and then solves it.
 
-- Be concise but clear
-- Use bullet points where appropriate
-- Include a short summary at the end if needed
-- Always sound professional and thoughtful
+User has given you a problem as an input. Break down the problem into smaller steps as described in Fermi estimation method. 
+Display the list of questions created by breaking down the problem into smaller steps.
+Now answer each of the questions. In conclusion show the answer to the actual question.
+
+Format the answer properly in steps which is very readable.
           `,
         },
         { role: 'user', content: query },
