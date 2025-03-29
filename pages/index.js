@@ -5,7 +5,7 @@ export default function Home() {
   const [response, setResponse] = useState('');
 
   const askGPT = async () => {
-    setResponse('Thinking...');
+    setResponse('Breaking the problem into small pieces...');
     try {
       const res = await fetch('/api/ask-gpt', {
         method: 'POST',
